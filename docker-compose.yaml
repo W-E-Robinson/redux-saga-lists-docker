@@ -1,0 +1,21 @@
+version: "3"
+services:
+  server:
+    image: redux-lists-backend:latest
+    container_name: redux-lists-backend
+    build:
+      context: ../redux-lists-backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+  app:
+    image: redux-lists:latest
+    container_name: redux-lists
+    stdin_open: true
+    build:
+      context: ../redux-lists/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
