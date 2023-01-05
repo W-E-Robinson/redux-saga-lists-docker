@@ -9,11 +9,11 @@ services:
     ports:
       - "8080:8080"
   app:
-    image: redux-lists:latest
-    container_name: redux-lists
+    image: redux-lists-frontend:latest
+    container_name: redux-lists-frontend
     stdin_open: true
     build:
-      context: ../redux-lists/
+      context: ../redux-lists-frontend/
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
